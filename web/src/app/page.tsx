@@ -35,9 +35,9 @@ export default async function Home() {
           <div className="flex justify-center mt-8">
             <Link
               href="/decrypt"
-              className="inline-flex items-center gap-3 px-12 py-6 bg-[#00e7ff] hover:bg-[#00d4eb] text-[#0b0e14] font-bold text-xl rounded-xl transition-all shadow-2xl shadow-[#00e7ff]/30 hover:shadow-[#00e7ff]/50 hover:scale-105 border-2 border-[#00e7ff]"
+              className="inline-flex items-center gap-2 sm:gap-3 px-6 py-3 sm:px-12 sm:py-6 bg-[#00e7ff] hover:bg-[#00d4eb] text-[#0b0e14] font-bold text-lg sm:text-xl rounded-xl transition-all shadow-2xl shadow-[#00e7ff]/30 hover:shadow-[#00e7ff]/50 hover:scale-105 border-2 border-[#00e7ff]"
             >
-              <Lock className="w-7 h-7" />
+              <Lock className="w-5 h-5 sm:w-7 sm:h-7" />
               Decrypt Memo
             </Link>
           </div>
