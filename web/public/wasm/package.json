@@ -1,0 +1,14 @@
+{
+  "name": "zcash-wasm",
+  "version": "0.1.0",
+  "files": [
+    "zcash_wasm_bg.wasm",
+    "zcash_wasm.js",
+    "zcash_wasm.d.ts"
+  ],
+  "module": "zcash_wasm.js",
+  "types": "zcash_wasm.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
