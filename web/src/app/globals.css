@@ -1,0 +1,168 @@
+@import "tailwindcss";
+
+/* ============================================
+   DEFAULT THEME (fallback to dark)
+   ============================================ */
+:root {
+    --background: #0b0e14;
+    --foreground: #ffffff;
+    --primary: #00e7ff;
+    --secondary: #bd00ff;
+    --surface: #11141d;
+    --surface-hover: #1a1f2e;
+    --muted: #9ca3af;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --error: #ef4444;
+    --border: #2d3748;
+    --accent: #00fff7;
+    --gradient-from: #00e7ff;
+    --gradient-to: #bd00ff;
+}
+
+/* ============================================
+   LIGHT THEME - Bright & Vibrant
+   ============================================ */
+[data-theme="light"] {
+    --background: #f8fafc;
+    --foreground: #0f172a;
+    --primary: #0ea5e9;
+    --secondary: #8b5cf6;
+    --surface: #ffffff;
+    --surface-hover: #f1f5f9;
+    --muted: #64748b;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --error: #ef4444;
+    --border: #e2e8f0;
+    --accent: #06b6d4;
+    --gradient-from: #0ea5e9;
+    --gradient-to: #8b5cf6;
+}
+
+/* ============================================
+   DIM THEME - Twilight/Dusk Colors
+   ============================================ */
+[data-theme="dim"] {
+    --background: #1e293b;
+    --foreground: #f1f5f9;
+    --primary: #38bdf8;
+    --secondary: #a78bfa;
+    --surface: #334155;
+    --surface-hover: #475569;
+    --muted: #94a3b8;
+    --success: #34d399;
+    --warning: #fbbf24;
+    --error: #f87171;
+    --border: #475569;
+    --accent: #22d3ee;
+    --gradient-from: #38bdf8;
+    --gradient-to: #a78bfa;
+}
+
+/* ============================================
+   MIDNIGHT THEME - Deep Blues & Purples
+   ============================================ */
+[data-theme="midnight"] {
+    --background: #0c1222;
+    --foreground: #e0e7ff;
+    --primary: #60a5fa;
+    --secondary: #c084fc;
+    --surface: #1e1b4b;
+    --surface-hover: #312e81;
+    --muted: #a5b4fc;
+    --success: #4ade80;
+    --warning: #fbbf24;
+    --error: #fb7185;
+    --border: #312e81;
+    --accent: #7dd3fc;
+    --gradient-from: #60a5fa;
+    --gradient-to: #c084fc;
+}
+
+/* ============================================
+   DARK THEME - Enhanced Dark with Colors
+   ============================================ */
+[data-theme="dark"] {
+    --background: #0b0e14;
+    --foreground: #ffffff;
+    --primary: #00e7ff;
+    --secondary: #bd00ff;
+    --surface: #11141d;
+    --surface-hover: #1a1f2e;
+    --muted: #9ca3af;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --error: #ef4444;
+    --border: #2d3748;
+    --accent: #00fff7;
+    --gradient-from: #00e7ff;
+    --gradient-to: #bd00ff;
+}
+
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+html {
+    background-color: var(--background);
+}
+
+body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom Scrollbar - Themed */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--surface);
+    border-radius: 6px;
+    border: 2px solid var(--background);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--surface-hover);
+}
+
+/* Gradient utilities */
+.gradient-primary {
+    background: linear-gradient(135deg, var(--gradient-from), var(--gradient-to));
+}
+
+.gradient-mesh {
+    background:
+        radial-gradient(at 40% 20%, var(--primary) 0px, transparent 50%),
+        radial-gradient(at 80% 0%, var(--secondary) 0px, transparent 50%),
+        radial-gradient(at 0% 50%, var(--accent) 0px, transparent 50%);
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+
+    .animate-glow {
+        animation: glow 2s ease-in-out infinite alternate;
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 30px var(--primary);
+    }
+
+    to {
+        text-shadow: 0 0 20px var(--primary), 0 0 30px var(--primary), 0 0 40px var(--primary);
+    }
+}
