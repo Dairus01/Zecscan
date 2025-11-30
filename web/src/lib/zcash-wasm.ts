@@ -20,7 +20,7 @@ export async function initWasm(): Promise<void> {
     initPromise = (async () => {
         try {
             // Dynamically import the wasm module
-            const wasm = await import('/wasm/zcash_wasm');
+            const wasm = await import('../../public/wasm/zcash_wasm');
             await wasm.default(); // Initialize
             wasm.init_panic_hook(); // Set up panic hook for better errors
             wasmModule = wasm;
