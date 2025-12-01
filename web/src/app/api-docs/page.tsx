@@ -118,9 +118,9 @@ export default function ApiDocs() {
                         params={[
                             { name: "height", type: "number", required: true, description: "The block height to query" }
                         ]}
-                        exampleRequest="curl https://zecscan.vercel.app/api/block/3000000"
+                        exampleRequest="curl https://zecscan.vercel.app/api/block/3667080"
                         exampleResponse={`{
-  "height": 3000000,
+  "height": 3667080,
   "hash": "0000000...",
   "timestamp": 1699123456,
   "transactions": [],
@@ -143,7 +143,7 @@ export default function ApiDocs() {
                         exampleResponse={`{
   "blocks": [
     {
-      "height": 3000000,
+      "height": 3667080,
       "hash": "0000000...",
       "timestamp": 1699123456,
       "transaction_count": 2,
@@ -153,7 +153,7 @@ export default function ApiDocs() {
   "pagination": {
     "limit": 10,
     "offset": 0,
-    "total": 3000000,
+    "total": 3667080,
     "hasMore": true
   }
 }`}
@@ -177,7 +177,7 @@ export default function ApiDocs() {
                         exampleRequest="curl https://zecscan.vercel.app/api/tx/abc123..."
                         exampleResponse={`{
   "txid": "abc123...",
-  "blockHeight": 3000000,
+  "blockHeight": 3667080,
   "timestamp": 1699123456,
   "confirmations": 5,
   "fee": 0,
@@ -248,7 +248,7 @@ export default function ApiDocs() {
                         description="Get general network statistics."
                         exampleRequest="curl https://zecscan.vercel.app/api/network/stats"
                         exampleResponse={`{
-  "height": 3000000,
+  "height": 3667080,
   "difficulty": 123456.78,
   "hashrate": "10.5 GSol/s",
   "peers": 24
@@ -268,7 +268,7 @@ export default function ApiDocs() {
                             <h3 className="font-bold text-lg">JavaScript / Node.js</h3>
                             <pre className="p-4 rounded-xl bg-[#0d1117] border border-white/10 overflow-x-auto text-sm font-mono text-muted">
                                 {`// Fetch block data
-const response = await fetch('https://zecscan.vercel.app/api/block/3000000');
+const response = await fetch('https://zecscan.vercel.app/api/block/3667080');
 const data = await response.json();
 console.log(data);
 
@@ -285,7 +285,7 @@ console.log(privacyData.metrics.privacyScore);`}
                                 {`import requests
 
 # Fetch block data
-response = requests.get('https://zecscan.vercel.app/api/block/3000000')
+response = requests.get('https://zecscan.vercel.app/api/block/3667080')
 data = response.json()
 print(data)
 
