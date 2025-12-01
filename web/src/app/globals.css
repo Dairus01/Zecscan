@@ -1,5 +1,32 @@
 @import "tailwindcss";
 
+@theme {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-primary: var(--primary);
+    --color-secondary: var(--secondary);
+    --color-surface: var(--surface);
+    --color-surface-hover: var(--surface-hover);
+    --color-muted: var(--muted);
+    --color-success: var(--success);
+    --color-warning: var(--warning);
+    --color-error: var(--error);
+    --color-border: var(--border);
+    --color-accent: var(--accent);
+
+    --animate-glow: glow 2s ease-in-out infinite alternate;
+
+    @keyframes glow {
+        from {
+            text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 30px var(--primary);
+        }
+
+        to {
+            text-shadow: 0 0 20px var(--primary), 0 0 30px var(--primary), 0 0 40px var(--primary);
+        }
+    }
+}
+
 /* ============================================
    DEFAULT THEME (fallback to dark)
    ============================================ */
@@ -147,22 +174,6 @@ body {
         radial-gradient(at 0% 50%, var(--accent) 0px, transparent 50%);
 }
 
-@layer utilities {
-    .text-balance {
-        text-wrap: balance;
-    }
-
-    .animate-glow {
-        animation: glow 2s ease-in-out infinite alternate;
-    }
-}
-
-@keyframes glow {
-    from {
-        text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 30px var(--primary);
-    }
-
-    to {
-        text-shadow: 0 0 20px var(--primary), 0 0 30px var(--primary), 0 0 40px var(--primary);
-    }
+@utility text-balance {
+    text-wrap: balance;
 }
