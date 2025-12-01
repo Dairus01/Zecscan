@@ -72,7 +72,7 @@ export default function ApiDocs() {
                     <div className="p-6 rounded-xl bg-primary/5 border border-primary/10">
                         <h3 className="font-bold text-primary mb-2">Base URL</h3>
                         <code className="text-sm font-mono bg-black/20 px-3 py-2 rounded block w-fit">
-                            https://api.zecscan.com/api
+                            https://zescan.vercel.app/api
                         </code>
                     </div>
                 </section>
@@ -118,7 +118,7 @@ export default function ApiDocs() {
                         params={[
                             { name: "height", type: "number", required: true, description: "The block height to query" }
                         ]}
-                        exampleRequest="curl https://api.zecscan.com/api/block/3667080"
+                        exampleRequest="curl https://zescan.vercel.app/api/block/3667080"
                         exampleResponse={`{
   "height": 3667080,
   "hash": "0000000...",
@@ -139,7 +139,7 @@ export default function ApiDocs() {
                             { name: "limit", type: "number", required: false, description: "Number of blocks to return (default: 10)" },
                             { name: "offset", type: "number", required: false, description: "Offset for pagination" }
                         ]}
-                        exampleRequest="curl 'https://api.zecscan.com/api/blocks?limit=10&offset=0'"
+                        exampleRequest="curl 'https://zescan.vercel.app/api/blocks?limit=10&offset=0'"
                         exampleResponse={`{
   "blocks": [
     {
@@ -174,7 +174,7 @@ export default function ApiDocs() {
                         params={[
                             { name: "txid", type: "string", required: true, description: "The transaction ID (hash)" }
                         ]}
-                        exampleRequest="curl https://api.zecscan.com/api/tx/abc123..."
+                        exampleRequest="curl https://zescan.vercel.app/api/tx/abc123..."
                         exampleResponse={`{
   "txid": "abc123...",
   "blockHeight": 3667080,
@@ -192,7 +192,7 @@ export default function ApiDocs() {
                         method="GET"
                         path="/mempool"
                         description="Get current mempool status and pending transactions."
-                        exampleRequest="curl https://api.zecscan.com/api/mempool"
+                        exampleRequest="curl https://zescan.vercel.app/api/mempool"
                         exampleResponse={`{
   "count": 5,
   "transactions": [
@@ -223,7 +223,7 @@ export default function ApiDocs() {
                         method="GET"
                         path="/privacy-stats"
                         description="Get current privacy metrics for the network."
-                        exampleRequest="curl https://api.zecscan.com/api/privacy-stats"
+                        exampleRequest="curl https://zescan.vercel.app/api/privacy-stats"
                         exampleResponse={`{
   "metrics": {
     "privacyScore": 85,
@@ -246,7 +246,7 @@ export default function ApiDocs() {
                         method="GET"
                         path="/network/stats"
                         description="Get general network statistics."
-                        exampleRequest="curl https://api.zecscan.com/api/network/stats"
+                        exampleRequest="curl https://zescan.vercel.app/api/network/stats"
                         exampleResponse={`{
   "height": 3667080,
   "difficulty": 123456.78,
@@ -268,12 +268,12 @@ export default function ApiDocs() {
                             <h3 className="font-bold text-lg">JavaScript / Node.js</h3>
                             <pre className="p-4 rounded-xl bg-[#0d1117] border border-white/10 overflow-x-auto text-sm font-mono text-muted">
                                 {`// Fetch block data
-const response = await fetch('https://api.zecscan.com/api/block/3667080');
+const response = await fetch('https://zescan.vercel.app/api/block/3667080');
 const data = await response.json();
 console.log(data);
 
 // Fetch privacy stats
-const stats = await fetch('https://api.zecscan.com/api/privacy-stats');
+const stats = await fetch('https://zescan.vercel.app/api/privacy-stats');
 const privacyData = await stats.json();
 console.log(privacyData.metrics.privacyScore);`}
                             </pre>
@@ -285,12 +285,12 @@ console.log(privacyData.metrics.privacyScore);`}
                                 {`import requests
 
 # Fetch block data
-response = requests.get('https://api.zecscan.com/api/block/3667080')
+response = requests.get('https://zescan.vercel.app/api/block/3667080')
 data = response.json()
 print(data)
 
 # Fetch mempool
-mempool = requests.get('https://api.zecscan.com/api/mempool')
+mempool = requests.get('https://zescan.vercel.app/api/mempool')
 print(f"Pending transactions: {mempool.json()['count']}")`}
                             </pre>
                         </div>
