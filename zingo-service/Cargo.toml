@@ -8,9 +8,9 @@ name = "zingo-service"
 path = "src/main.rs"
 
 [dependencies]
-# Zingo library for Zcash light wallet functionality (from Git)
-# Temporarily commented out due to dependency conflicts - will re-enable after resolving
-# zingolib = { git = "https://github.com/zingolabs/zingolib", branch = "main" }
+# HTTP client for fetching transactions
+reqwest = { version = "0.11", features = ["json"] }
+
 
 # Web framework
 axum = "0.7"
