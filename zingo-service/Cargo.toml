@@ -8,12 +8,9 @@ name = "zingo-service"
 path = "src/main.rs"
 
 [dependencies]
-# Ywallet's zcash-warp engine for watch-only accounts
-# Using the submodule repository directly
-zcash-warp = { git = "https://github.com/hhanh00/zcash-warp" }
-
 # HTTP client for fetching transactions
 reqwest = { version = "0.11", features = ["json"] }
+
 
 # Web framework
 axum = "0.7"
