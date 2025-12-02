@@ -8,6 +8,7 @@ let initPromise: Promise<void> | null = null;
 
 /**
  * Initialize the Zcash WebAssembly module
+ * NOTE: Currently using server-side Zingo service instead of client-side WASM
  */
 export async function initWasm(): Promise<void> {
     if (wasmModule) return;
@@ -19,12 +20,16 @@ export async function initWasm(): Promise<void> {
 
     initPromise = (async () => {
         try {
-            // Dynamically import the wasm module
-            const wasm = await import('../../public/wasm/zcash_wasm');
-            await wasm.default(); // Initialize
-            wasm.init_panic_hook(); // Set up panic hook for better errors
-            wasmModule = wasm;
-            console.log('✅ Zcash WASM initialized:', wasmModule.greet());
+            // WASM import disabled - using server-side Zingo service instead
+            // Uncomment when client-side WASM is ready for production
+            // const wasm = await import('../../public/wasm/zcash_wasm');
+            // await wasm.default(); // Initialize
+            // wasm.init_panic_hook(); // Set up panic hook for better errors
+            // wasmModule = wasm;
+            // console.log('✅ Zcash WASM initialized:', wasmModule.greet());
+
+            console.log('ℹ️ WASM module disabled - using server-side Zingo service');
+            wasmModule = null; // Explicitly null to indicate server-side mode
         } catch (error) {
             console.error('❌ Failed to initialize Zcash WASM:', error);
             throw new Error('Failed to load decryption module');
