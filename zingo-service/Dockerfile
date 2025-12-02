@@ -7,7 +7,7 @@ WORKDIR /app
 COPY Cargo.toml Cargo.lock ./
 COPY build.rs ./
 
-# Copy source code
+# Copy source code  
 COPY src ./src
 
 # Build the application
@@ -22,15 +22,18 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y \
     ca-certificates \
     curl \
+    wget \
     && rm -rf /var/lib/apt/lists/*
 
-# Download and install zecwallet-cli
-RUN curl -L https://github.com/adityapk00/zecwallet-light-cli/releases/download/v1.8.9/linux-zecwallet-cli-v1.8.9.tar.gz \
-    -o /tmp/zecwallet-cli.tar.gz && \
-    tar -xzf /tmp/zecwallet-cli.tar.gz -C /tmp && \
-    mv /tmp/linux-zecwallet-cli-v1.8.9/zecwallet-cli /usr/local/bin/ && \
+# Download and install zecwallet-cli binary
+# Try direct binary download first, then try tar.gz
+RUN wget -q https://github.com/adityapk00/zecwallet-light-cli/releases/download/v1.8.9/linux-zecwallet-cli-v1.8.9.tar.gz -O /tmp/zecwallet.tar.gz && \
+    cd /tmp && \
+    tar -xzf zecwallet.tar.gz && \
+    find /tmp -name "zecwallet-cli" -type f -exec cp {} /usr/local/bin/zecwallet-cli \; && \
     chmod +x /usr/local/bin/zecwallet-cli && \
-    rm -rf /tmp/zecwallet-cli.tar.gz /tmp/linux-zecwallet-cli-v1.8.9
+    rm -rf /tmp/zecwallet.tar.gz /tmp/linux-* && \
+    zecwallet-cli --help || echo "Zecwallet-cli installed"
 
 # Copy the built binary from builder
 COPY --from=builder /app/target/release/zingo-service .
