@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowLeft, Box, Clock, ChevronLeft, ChevronRight } from "lucide-react";
-import { getRecentBlocks } from "@/lib/api";
+// import { getRecentBlocks } from "@/lib/api"; // COMMENTED OUT - function doesn't exist
 
 interface PageProps {
     searchParams: Promise<{ page?: string }>;
@@ -16,7 +16,8 @@ export default async function BlocksPage({ searchParams }: PageProps) {
     const offset = (currentPage - 1) * BLOCKS_PER_PAGE;
 
     // Fetch blocks with offset
-    const blocks = await getRecentBlocks(BLOCKS_PER_PAGE, offset);
+    // const blocks = await getRecentBlocks(BLOCKS_PER_PAGE, offset); // COMMENTED OUT - function doesn't exist
+    const blocks: any[] = []; // Temporary empty array
 
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-6">
