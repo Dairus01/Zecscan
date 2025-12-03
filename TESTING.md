@@ -27,10 +27,6 @@ Go to: http://localhost:3000/decrypt
 
 The page will:
 1. Call `/api/decrypt-memo` (locally)
-2. Which calls `https://zecscan.onrender.com/api/decrypt-memo`
-3. Display the Zingo service response
-
-Currently the Zingo service returns an informative message about zingolib being temporarily disabled. When zingolib is re-enabled, it will show the actual decrypted memo!
 
 ## Ready to Deploy?
 
