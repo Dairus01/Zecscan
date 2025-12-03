@@ -62,7 +62,7 @@ export function Footer() {
                                         <Github className="w-5 h-5" />
                                     </a>
                                 </div>
-                                <p>Powered by Blockchair</p>
+                                <p>Powered by Blockchair and Nighthawk</p>
                                 <p className="flex items-center gap-1">
                                     Built with <span className="text-warning">💜</span> for the
                                     community

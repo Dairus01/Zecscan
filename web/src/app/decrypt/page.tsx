@@ -331,7 +331,7 @@ export default function DecryptPage() {
                   UNIFIED FULL VIEWING KEY
                 </label>
                 <input
-                  type="text"
+                  type="password"
                   value={viewingKey}
                   onChange={(e) => setViewingKey(e.target.value)}
                   placeholder="uview1..."
