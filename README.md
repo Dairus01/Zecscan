@@ -1,10 +1,5 @@
 # ZecScan - Zcash Blockchain Explorer
 
-![TypeScript](https://img.shields.io/badge/TypeScript-94.8%25-blue)
-![JavaScript](https://img.shields.io/badge/JavaScript-2.9%25-yellow)
-![CSS](https://img.shields.io/badge/CSS-2.2%25-purple)
-![HTML](https://img.shields.io/badge/HTML-0.1%25-orange)
-
 ![ZecScan Homepage](./docs/images/zecscan_homepage.png)
 
 A modern, privacy-focused blockchain explorer for the Zcash network. ZecScan makes exploring the Zcash blockchain intuitive and beautiful, with powerful features for viewing transactions, blocks, addresses, and decrypting shielded memos.
