@@ -1,5 +1,10 @@
 # ZecScan - Zcash Blockchain Explorer
 
+![TypeScript](https://img.shields.io/badge/TypeScript-94.8%25-blue)
+![JavaScript](https://img.shields.io/badge/JavaScript-2.9%25-yellow)
+![CSS](https://img.shields.io/badge/CSS-2.2%25-purple)
+![HTML](https://img.shields.io/badge/HTML-0.1%25-orange)
+
 ![ZecScan Homepage](./docs/images/zecscan_homepage.png)
 
 A modern, privacy-focused blockchain explorer for the Zcash network. ZecScan makes exploring the Zcash blockchain intuitive and beautiful, with powerful features for viewing transactions, blocks, addresses, and decrypting shielded memos.
@@ -14,14 +19,14 @@ Whether you're tracking a transaction, exploring block data, or decrypting memos
 
 ## Key Features
 
-### 🔍 Comprehensive Search
+### Comprehensive Search
 Search the Zcash blockchain by transaction ID, block hash, block height, or address. Get instant results with detailed breakdowns of:
 - Transaction amounts and fees
 - Shielded and transparent pools
 - Block confirmations
 - Memo field data
 
-### 🔐 Client-Side Memo Decryption
+### Client-Side Memo Decryption
 Decrypt shielded transaction memos without compromising your privacy:
 - **100% client-side processing** - Your viewing key never leaves your browser
 - **WebAssembly powered** - Fast, secure decryption using Zcash cryptography
@@ -31,7 +36,7 @@ Decrypt shielded transaction memos without compromising your privacy:
 
 ![Decrypt Page](./docs/images/zecscan_decrypt_page.png)
 
-### 🎨 Multiple Themes
+### Multiple Themes
 Choose from four beautiful themes to match your preference:
 - **Dark** - Perfect for late-night blockchain exploring
 - **Light** - Clean and crisp for daytime viewing
@@ -40,13 +45,13 @@ Choose from four beautiful themes to match your preference:
 
 ![Light Theme](./docs/images/zecscan_light_theme.png)
 
-### ⚡ Real-Time Data
+### Real-Time Data
 - Live blockchain statistics
 - Latest blocks and transactions
 - Mempool viewer for pending transactions
 - Network stats and metrics
 
-### 🌐 API Access
+### API Access
 Full REST API access for developers:
 - Transaction lookups
 - Block information
@@ -209,11 +214,11 @@ Zecscan/
 
 Your privacy matters. Here's how ZecScan protects you:
 
-- ✅ **Client-side decryption only** - Viewing keys are processed in your browser using WebAssembly
-- ✅ **No server logs** - Transaction IDs are sent via POST requests to avoid URL logging
-- ✅ **Zero data storage** - We don't store any of your sensitive information
-- ✅ **Open source** - Review the code yourself to verify our privacy claims
-- ✅ **No analytics tracking** - Your browsing is your business
+- **Client-side decryption only** - Viewing keys are processed in your browser using WebAssembly
+- **No server logs** - Transaction IDs are sent via POST requests to avoid URL logging
+- **Zero data storage** - We don't store any of your sensitive information
+- **Open source** - Review the code yourself to verify our privacy claims
+- **No analytics tracking** - Your browsing is your business
 
 ## Contributing
 
@@ -276,6 +281,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Built with 💜 for the Zcash community**
+**Built with love for the Zcash community**
 
 *Privacy is Normal*
