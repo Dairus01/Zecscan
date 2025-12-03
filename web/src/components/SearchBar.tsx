@@ -72,7 +72,7 @@ export function SearchBar() {
                 </button>
                 <span className="text-border hidden sm:inline">|</span>
                 <button
-                    onClick={() => handleSearch("t1WMVnNxQEBnW75oSkWGF446ys92YgVo8RS")}
+                    onClick={() => handleSearch("t1at7nVNsv6taLRrNRvnQdtfLNRDfsGc3Ak")}
                     className="text-primary font-bold cursor-pointer hover:text-primary/80 transition-colors"
                 >
                     t-address
