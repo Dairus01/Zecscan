@@ -341,3 +341,123 @@ export async function getMempoolTransactions() {
     }
 }
 
+// Zcash Explorer API for demo purposes
+const ZCASH_EXPLORER_BASE = "https://mainnet.zcashexplorer.app";
+
+export interface ZcashExplorerTransaction {
+    confirmations: number;
+    time: string;
+    blockId: number;
+    size: number;
+    version: number;
+    locktime: number;
+    publicInputs: number;
+    publicOutputs: number;
+    shieldedInputs: number;
+    shieldedOutputs: number;
+    joinsplits: number;
+    orchardActions: number;
+    overwintered: boolean;
+    fee?: number;
+    hash: string;
+}
+
+export interface ZcashExplorerRawTransaction {
+    hash: string;
+    hex: string;
+    version: number;
+    locktime: number;
+    expiryheight?: number;
+    vin?: any[];
+    vout?: any[];
+    vShieldedSpend?: any[];
+    vShieldedOutput?: any[];
+    vJoinSplit?: any[];
+    orchardActions?: any[];
+    bindingSig?: string;
+    [key: string]: any; // For additional fields
+}
+
+/**
+ * Fetches transaction details from Zcash Explorer via privacy-preserving proxy
+ * Proxy uses Edge runtime for minimal logging
+ */
+export async function fetchZcashExplorerTransaction(txid: string): Promise<ZcashExplorerTransaction | null> {
+    try {
+        // POST request with txid in body = NO URL logging of sensitive data!
+        const res = await fetch('/api/zcash-explorer', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ txid }),
+            cache: 'no-store'
+        });
+
+        if (!res.ok) {
+            console.error(`Failed to fetch transaction: ${res.status}`);
+            return null;
+        }
+
+        const rawTx = await res.json();
+
+        // Extract data from the raw transaction
+        const publicInputs = rawTx.vin?.length || 0;
+        const publicOutputs = rawTx.vout?.length || 0;
+        const shieldedInputs = (rawTx.vShieldedSpend?.length || 0);
+        const shieldedOutputs = (rawTx.vShieldedOutput?.length || 0);
+        const joinsplits = rawTx.vjoinsplit?.length || 0;
+        const orchardActions = rawTx.orchard?.actions?.length || 0;
+
+        // Calculate approximate confirmations based on current time
+        const txTime = rawTx.time || 0;
+        const currentTime = Math.floor(Date.now() / 1000);
+        const timeDiff = currentTime - txTime;
+        const estimatedConfirmations = Math.floor(timeDiff / 75); // ~75 seconds per block
+
+        return {
+            hash: txid,
+            confirmations: estimatedConfirmations,
+            time: new Date(txTime * 1000).toUTCString(),
+            blockId: rawTx.height || 0,
+            size: rawTx.size || 0,
+            version: rawTx.version || 5,
+            locktime: rawTx.locktime || 0,
+            publicInputs,
+            publicOutputs,
+            shieldedInputs,
+            shieldedOutputs,
+            joinsplits,
+            orchardActions,
+            overwintered: rawTx.overwintered || false,
+        };
+    } catch (error) {
+        console.error('Error fetching Zcash Explorer transaction:', error);
+        return null;
+    }
+}
+
+/**
+ * Fetches raw transaction JSON from Zcash Explorer via privacy-preserving proxy
+ * Proxy uses Edge runtime for minimal logging
+ */
+export async function fetchZcashExplorerRawTransaction(txid: string): Promise<ZcashExplorerRawTransaction | null> {
+    try {
+        // POST request with txid in body = NO URL logging of sensitive data!
+        const res = await fetch('/api/zcash-explorer', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ txid }),
+            cache: 'no-store'
+        });
+
+        if (!res.ok) {
+            console.error(`Failed to fetch raw transaction: ${res.status}`);
+            return null;
+        }
+
+        const data = await res.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching Zcash Explorer raw transaction:', error);
+        return null;
+    }
+}
