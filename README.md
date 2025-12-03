@@ -46,13 +46,6 @@ Choose from four beautiful themes to match your preference:
 - Mempool viewer for pending transactions
 - Network stats and metrics
 
-### API Access
-Full REST API access for developers:
-- Transaction lookups
-- Block information
-- Address balances
-- Mempool data
-
 ## Technology Stack
 
 ZecScan is built with modern web technologies for performance and reliability:
@@ -170,22 +163,7 @@ yarn start
 - **Network Stats:** Check current network health, price, and statistics
 - **Mempool Viewer:** See pending transactions waiting for confirmation
 
-### Using the API
 
-Access blockchain data programmatically through our API endpoints:
-
-```bash
-# Get transaction details
-curl https://zecscan.vercel.app/api/transaction/[txid]
-
-# Get block information
-curl https://zecscan.vercel.app/api/block/[height]
-
-# Get address balance
-curl https://zecscan.vercel.app/api/address/[address]
-```
-
-Full API documentation is available at `/api-docs`
 
 ## Project Structure
 

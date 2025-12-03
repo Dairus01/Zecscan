@@ -72,9 +72,6 @@ export function Navbar() {
                                         Decrypt Memo
                                     </Link>
                                     <div className="h-px bg-[#2d3748] my-1 mx-2" />
-                                    <Link href="/api-docs" className="flex items-center gap-2 px-3 py-2 text-sm text-[#9ca3af] hover:text-white hover:bg-white/5 rounded-lg transition-colors">
-                                        API Docs
-                                    </Link>
                                     <Link href="/learn" className="flex items-center gap-2 px-3 py-2 text-sm text-[#9ca3af] hover:text-white hover:bg-white/5 rounded-lg transition-colors">
                                         Learn About Zcash
                                     </Link>
@@ -169,12 +166,7 @@ export function Navbar() {
                         >
                             Decrypt Memo
                         </Link>
-                        <Link
-                            href="/api-docs"
-                            className="block px-3 py-2 rounded-md text-base font-medium text-muted hover:text-white hover:bg-white/5"
-                        >
-                            API Docs
-                        </Link>
+
                     </div>
                 </div>
             )}

@@ -148,13 +148,6 @@ export default function LearnPage() {
                         <span className="font-bold text-foreground group-hover:text-primary transition-colors">Mempool Viewer</span>
                         <Eye className="w-5 h-5 text-muted group-hover:text-primary transition-colors" />
                     </Link>
-                    <Link
-                        href="/api-docs"
-                        className="flex items-center justify-between px-6 py-4 bg-surface border border-border rounded-xl hover:border-primary/50 hover:bg-surface-hover transition-all group"
-                    >
-                        <span className="font-bold text-foreground group-hover:text-primary transition-colors">API Documentation</span>
-                        <Code className="w-5 h-5 text-muted group-hover:text-primary transition-colors" />
-                    </Link>
                 </div>
             </div>
 
